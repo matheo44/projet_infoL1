@@ -76,7 +76,7 @@ int recup_valeur_entier(Configuration config, string nom_cle){
 
 //-----------------------------------------------
 // Retourne une configuration avec la valeur de la clé "nom_cle" possède la valeur "nouvelle_valeur" (pour les clés de type entier)
-Configuration modif_valeur_cle_entier(Configuration& config, string nom_cle, int nouvelle_valeur) {
+Configuration modif_valeur_entier(Configuration& config, string nom_cle, int nouvelle_valeur) {
     //variable
     int index_cle = -1;
     
@@ -88,7 +88,7 @@ Configuration modif_valeur_cle_entier(Configuration& config, string nom_cle, int
 
 //-----------------------------------------------
 // Retourne une configuration avec la valeur de la clé "nom_cle" possède la valeur "nouvelle_valeur" (pour les clés de type chaine)
-Configuration modif_valeur_cle_chaine(Configuration& config, string nom_cle, string nouvelle_valeur) {
+Configuration modif_valeur_chaine(Configuration& config, string nom_cle, string nouvelle_valeur) {
     //variable
     int index_cle = -1;
     
@@ -103,21 +103,21 @@ Configuration modif_valeur_cle_chaine(Configuration& config, string nom_cle, str
 // Lance la fonction compris dans le fichier configuration.
 void appel_fonction(Configuration& config) {
     //debut
-    if (config.fonction == "recup_valeur_cle_entier") {
-   	 // Afin d'exécuter recup_valeur_cle_entier() le fichier config doit avoir une cle chaine nommee "S_nom_cle_a_recup"
+    if (config.fonction == "recup_valeur_entier") {
+   	 // Afin d'exécuter recup_valeur_entier() le fichier config doit avoir une cle chaine nommee "S_nom_cle_a_recup"
    	 recup_valeur_entier(config, recup_valeur_chaine(config, "S_nom_cle_a_recup"));
    	 
-    } else if (config.fonction == "recup_valeur_cle_chaine") {
-   	 // Afin d'exécuter recup_valeur_cle_chaine() le fichier config doit avoir une cle chaine nommee "S_nom_cle_a_recup"
+    } else if (config.fonction == "recup_valeur_chaine") {
+   	 // Afin d'exécuter recup_valeur_chaine() le fichier config doit avoir une cle chaine nommee "S_nom_cle_a_recup"
    	 recup_valeur_chaine(config, recup_valeur_chaine(config, "S_nom_cle_a_recup"));
    	 
-    } else if (config.fonction == "modif_valeur_cle_entier") {
-   	 // Afin d'exécuter modif_valeur_cle_entier() le fichier config doit avoir une cle chaine nommee "S_nom_cle_a_modif" et une clé entier nommee "E_nouvelle_valeur"
-   	 modif_valeur_entier(config, recup_valeur_chaine(config, "S_nom_cle_a_modif"), recup_valeur_cle_entier(config, "E_nouvelle_valeur"));
+    } else if (config.fonction == "modif_valeur_entier") {
+   	 // Afin d'exécuter modif_valeur_entier() le fichier config doit avoir une cle chaine nommee "S_nom_cle_a_modif" et une clé entier nommee "E_nouvelle_valeur"
+modif_valeur_entier(config, recup_valeur_chaine(config, "S_nom_cle_a_modif"), recup_valeur_entier(config, "E_nouvelle_valeur"));
    	 
-    } else if (config.fonction == "modif_valeur_cle_chaine") {
-   	 // Afin d'exécuter modif_valeur_cle_chaine() le fichier config doit avoir 2 cles chaine nommee respectivement "S_nom_cle_a_modif" et "S_nouvelle_valeur"
-   	 modif_valeur_cle_chaine(config, recup_valeur_chaine(config, "S_nom_cle_a_modif"), recup_valeur_cle_chaine(config, "S_nouvelle_valeur"));
+    } else if (config.fonction == "modif_valeur_chaine") {
+   	 // Afin d'exécuter modif_valeur_chaine() le fichier config doit avoir 2 cles chaine nommee respectivement "S_nom_cle_a_modif" et "S_nouvelle_valeur"
+modif_valeur_chaine(config, recup_valeur_chaine(config, "S_nom_cle_a_modif"), recup_valeur_chaine(config, "S_nouvelle_valeur"));
    	 
     }
 }
@@ -174,4 +174,3 @@ void stocker_config(string nom_fichier_config, Configuration& config){
 		fichier_config >> c_v.valeur;
 	}
 	}
-
