@@ -1,6 +1,6 @@
 #include <iostream>
-#include "lib_config_v2.h"
-#include "lib_v2.h"
+#include "librairie_config.h"
+#include "librairie_fonc_img.h"
 #include "png_io.h"
 
 int main(int argc, char **argv){
