@@ -1,3 +1,0 @@
- fonction fondunoir
- S_img_input monimg.jpg
- E_nbsteps 7
